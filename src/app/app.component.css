@@ -1,0 +1,49 @@
+.bg {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: red;
+}
+.head, .body {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+}
+.head {
+    display: inline-flex;
+    height: auto;
+    margin-top: 15px;
+    align-items: center;
+    background: skyblue;
+}
+.body {
+    margin-bottom: 15px;
+    flex: auto;
+    display: inline-block;
+    background: aqua;
+    overflow: hidden;
+}
+button {
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+}
+.right {
+    float: right;
+}
+.center {
+    width: fit-content;
+    margin: 0 auto;
+}
+.search-box {
+    padding-top: 7px;
+    line-height: 20px;
+    border-radius: 4px;
+    margin-right: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
