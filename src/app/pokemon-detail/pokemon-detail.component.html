@@ -1,3 +1,28 @@
-<p>
-  pokemon-detail works!
-</p>
+
+<div>
+  <p>
+    pokemon-detail works!  
+  </p>
+  <div *ngIf="pokemon != null && pokemonDetails != null">
+
+    <br /> 
+          <div >
+            <img class = "imageDiv" [src]="imageToShow" alt="Place image title"
+              *ngIf="!isImageLoading; else noImageFound">
+            <ng-template #noImageFound>
+                No Image!
+            </ng-template>
+          </div>
+    <br /> {{pokemon.name}}
+    <br /> {{pokemon.url}}
+    <br /> {{pokemonDetails.id}}
+    <br /> {{pokemonDetails.is_default}}
+    <br /> {{pokemonDetails.location_area_encounters}}
+    <br /> 
+    <ul class="pokemonDetails">
+      <li *ngFor="let ability of pokemonDetails.abilities">
+        <span> {{ability.ability.name}} </span>  
+      </li>
+    </ul>
+  </div>
+</div>

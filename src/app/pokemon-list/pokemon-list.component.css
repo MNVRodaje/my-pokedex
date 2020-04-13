@@ -80,3 +80,11 @@
     width: fit-content;
     margin: 0 auto;
   }
+
+  .routerClass {
+    float: right;
+  }
+
+  .detail {
+    background-color: rgb(243, 243, 82);
+  }

@@ -5,9 +5,15 @@
     <button class="right" (click)="onNext()">Next</button>
     <b>Pokemon List</b>
   </h4>
+  
   <ul class="pokemons">
     <li *ngFor="let pokemon of pokemons.results">
       <span class = "badge"> {{pokemon.name}} </span>
+      <a class = "routerClass" routerLink = "/pokemon-detail">
+        <button class = "detail" (click)= "setCurrentPokemon(pokemon)"> 
+            Pokemon Detail
+        </button>
+      </a> 
     </li>
   </ul>
 </div>

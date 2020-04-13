@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PokemonService } from '../pokemon.service';
+
 @Component({
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
@@ -7,9 +9,59 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonDetailComponent implements OnInit {
 
-  constructor() { }
+  public pokemon: any = null;
 
-  ngOnInit() {
+  public pokemonDetails: any = null;
+
+  constructor(private pokemonService: PokemonService) { 
+
   }
 
+  ngOnInit() {
+    this.getSelectedPokemon();
+    this.getPokemonDetails();
+  }
+
+  getSelectedPokemon() {
+   this.pokemon = this.pokemonService.getSelectedPokemon();
+  }
+
+  getPokemonDetails() {
+    if(this.pokemon != null) {
+      this.pokemonService.getPokemonDetails(this.pokemon.url)
+      .subscribe(details => {
+        this.pokemonDetails = details
+        this.getImageFromService();
+      });
+    }
+  }
+
+  imageToShow: any;
+  isImageLoading: any;
+
+  createImageFromBlob(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+        this.imageToShow = reader.result;
+    }, false);
+
+    if (image) {
+        reader.readAsDataURL(image);
+    }
+  }
+
+  getImageFromService() {
+    this.isImageLoading = true;
+    if(this.pokemonDetails != null) {
+      
+    console.log("eto na: asdfasdf0a98df");
+      this.pokemonService.getImage(this.pokemonDetails.id).subscribe(data => {
+        this.createImageFromBlob(data);
+        this.isImageLoading = false;
+      }, error => {
+        this.isImageLoading = false;
+        console.log(error);
+      });
+    }
+  }
 }

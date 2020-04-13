@@ -34,4 +34,8 @@ export class PokemonListComponent implements OnInit {
     this.pokemonService.getPrevious(this.pokemons.previous);
     this.ngOnInit();
   }
+
+  setCurrentPokemon(pokemon) {
+    this.pokemonService.setSelectedPokemon(pokemon);
+  }
 }
