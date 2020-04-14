@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class PokemonService {
   
-  private _URL: string = 'https://pokeapi.co/api/v2/pokemon';
+  private pokemonList_URL: string = 'https://pokeapi.co/api/v2/pokemon';
 
   private imageUrl: string = 'https://pokeres.bastionbot.org/images/pokemon';
 
@@ -21,23 +21,23 @@ export class PokemonService {
     ) { }
 
   setURL(value: string) {
-    this._URL = value;
+    this.pokemonList_URL = value;
   }
   getPokemon (): Observable<IPokemon[]> {
-    return this.http.get<IPokemon[]>(this._URL);
+    return this.http.get<IPokemon[]>(this.pokemonList_URL);
   }
   getNext (next: string) {
-    return this._URL = next;
+    return this.pokemonList_URL = next;
   }
   getPrevious (previous: string) {
-    if(this._URL = " "){
+    if(this.pokemonList_URL = " "){
       
     }
-    return this._URL = previous;
+    return this.pokemonList_URL = previous;
   }
 
-  getPokemonDetails(detailUrl) {
-    return this.http.get(detailUrl);
+  getPokemonDetails(pokemonDetail_URL) {
+    return this.http.get(pokemonDetail_URL);
   }
 
   setSelectedPokemon(pokemonVar: any) {
@@ -51,8 +51,6 @@ export class PokemonService {
   }
 
   getImage(id: string): Observable<Blob> {
-
-    console.log("eto na: ");
     console.log(this.imageUrl + "/" + id + ".png");
     return this.http.get(this.imageUrl + "/" + id + ".png", { responseType: 'blob' });
   }

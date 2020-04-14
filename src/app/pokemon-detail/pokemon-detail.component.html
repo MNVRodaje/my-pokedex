@@ -1,28 +1,74 @@
+<div class="bg">
+  <div class="left">
+    <div class="pokemonID">
+      <strong>No. {{pokemonDetails.id}}</strong>
+    </div>
+    <div class="pokemonName">
+      <strong>{{pokemon.name | uppercase}}</strong>
+    </div>
+    <div class="pokemonImage" *ngIf="pokemon != null && pokemonDetails != null">
+      <img class ="imageDiv" [src]="imageToShow" alt="{{pokemon.name}} image"
+        *ngIf="!isImageLoading; else noImageFound">
+      <ng-template #noImageFound>
+        No Image!
+      </ng-template>
+    </div>
+    <div class="pokemonTypes">
+      <strong>Type(s): </strong> 
+      <div class="types" *ngFor="let type of pokemonDetails.types">
+        {{type.type.name}} 
+      </div>
+    </div>
+    <div class="pokemonGenus">
+      <strong>Category: </strong> 
+      
+    </div>
+    <div class="left-subcontainer">
+      <div class="flavor-text">
+          <i>""</i> 
+      </div>
+      <div class="left-subcontainer-left-subcontainer">
+        <div class="physicalDetails">
+          Height:  <strong> {{pokemonDetails.height / 10}} m.</strong>
+          <br/> 
+          Weight:  <strong> {{pokemonDetails.weight / 10}} kg.</strong>
+        </div>
+        <div class="weakness">
+          Weakness:
+          <br/>
+          mahina siya sa..
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div>
-  <p>
-    pokemon-detail works!  
-  </p>
-  <div *ngIf="pokemon != null && pokemonDetails != null">
-
-    <br /> 
-          <div >
-            <img class = "imageDiv" [src]="imageToShow" alt="Place image title"
-              *ngIf="!isImageLoading; else noImageFound">
-            <ng-template #noImageFound>
-                No Image!
-            </ng-template>
-          </div>
-    <br /> {{pokemon.name}}
-    <br /> {{pokemon.url}}
-    <br /> {{pokemonDetails.id}}
-    <br /> {{pokemonDetails.is_default}}
-    <br /> {{pokemonDetails.location_area_encounters}}
-    <br /> 
-    <ul class="pokemonDetails">
-      <li *ngFor="let ability of pokemonDetails.abilities">
+  <div class="right" >
+    <div class="pokemonAbilities">
+      Abilities:
+      <div *ngFor="let ability of pokemonDetails.abilities">
         <span> {{ability.ability.name}} </span>  
-      </li>
-    </ul>
+      </div>
+    </div>
+
+    <div class="pokemonMoves">
+      Moves:
+      <div class="moves">
+        <ul class="pokemonDetails">
+          <li *ngFor="let move of pokemonDetails.moves">
+            <span> {{move.move.name}} </span>  
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pokemonEvolutions">
+      <div class="evolve-from">
+
+      </div>
+      <div class="evolve-to">
+
+      </div>
+    </div>
+  
   </div>
 </div>

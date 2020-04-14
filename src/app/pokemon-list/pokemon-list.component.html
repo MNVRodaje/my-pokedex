@@ -1,19 +1,28 @@
-<div class="bg">
-  <h4 class="heading" >
-    <button class="left" (click)="onPrevious()">Previous</button>
-    
-    <button class="right" (click)="onNext()">Next</button>
-    <b>Pokemon List</b>
-  </h4>
+
+  <div class="head" >
+    <div class="left" >
+      <button (click)="onPrevious()">
+        <img src="../assets/images/arrow-left.png" height="20px" width="20px" alt="">
+      </button>
+    </div>
+    <div class="center">
+
+    </div>
+    <div class="right">
+      <button (click)="onNext()">
+        <img src="../assets/images/arrow-right.png" height="20px" width="20px" alt="">
+      </button>
+    </div>
+  </div>
   
-  <ul class="pokemons">
-    <li *ngFor="let pokemon of pokemons.results">
-      <span class = "badge"> {{pokemon.name}} </span>
-      <a class = "routerClass" routerLink = "/pokemon-detail">
-        <button class = "detail" (click)= "setCurrentPokemon(pokemon)"> 
-            Pokemon Detail
-        </button>
-      </a> 
-    </li>
-  </ul>
-</div>
+  <div class="body">
+    <div class="wrapper">
+      <div class="tile" *ngFor="let pokemon of pokemons.results">
+          <a class = "routerClass" routerLink = "/pokemon-detail">
+            <button class = "detail" (click)= "setCurrentPokemon(pokemon)"> 
+              <strong>{{pokemon.name | uppercase}}</strong>
+            </button>
+          </a> 
+      </div>
+    </div>
+  </div>

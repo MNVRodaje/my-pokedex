@@ -1,6 +1,91 @@
+div {
+    border-radius: 10px;
+    /* background: linear-gradient(to bottom left, rgb(231, 253, 255), rgb(183, 190, 190)); */
+    padding: 5px;
+    margin: 3px;
+    border: bisque;
+    font-family: sans-serif;
+}
+
+.bg {
+    /* background: thistle; */
+    width: 100%;
+    height: 95%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100%;
+}
+
 .imageDiv {
-    width: 200px;
-    height: 200px;
-    max-width: 200px;
-    max-height: 200px;
+    height: 100%;
+    width: auto;
+}
+
+div.left {
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 7.69% 7.69% 38.46% 7.69% 7.69% 30.77%;
+}
+
+div.right {
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 50% 30%;
+}
+
+div.left-subcontainer {
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+}
+
+div.left-subcontainer-left-subcontainer {
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+}
+
+div.pokemonEvolutions {
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+}
+
+.pokemonID, .pokemonName, .pokemonImage, .pokemonTypes, 
+.pokemonGenus, .flavor-text, .weakness, .physicalDetails, 
+.pokemonAbilities, .pokemonMoves, .evolve-from, .evolve-to {
+    background: linear-gradient(to bottom left, rgb(231, 253, 255), rgb(183, 190, 190));
+    overflow-y: auto;
+    font-size: auto;
+    text-size-adjust: auto;
+    align-content: center;
+}
+
+.pokemonID {
+    text-align: center;
+}
+
+.pokemonName {
+    text-align: center;
+}
+
+.pokemonImage {
+    text-align: center;
+}
+
+.pokemonTypes {
+    display: flex;
+    flex-direction: row;
+}
+
+.pokemonAblities {
+    overflow-y: scroll;
+}
+.pokemonMoves {
+    overflow-y: scroll;
 }

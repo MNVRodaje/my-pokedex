@@ -53,8 +53,6 @@ export class PokemonDetailComponent implements OnInit {
   getImageFromService() {
     this.isImageLoading = true;
     if(this.pokemonDetails != null) {
-      
-    console.log("eto na: asdfasdf0a98df");
       this.pokemonService.getImage(this.pokemonDetails.id).subscribe(data => {
         this.createImageFromBlob(data);
         this.isImageLoading = false;
